@@ -6,156 +6,171 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.site-header,.photo-controls,.upload-status,.gallery-note,.skip-link{display:none}.container{width:100%}.about-section,.page-section,.contact-section{padding-block:20px}.about-section{grid-template-columns:1fr 160px}.page-section,.about-section,.contact-section{break-inside:avoid}}
 .about-links{display:flex;flex-wrap:wrap;gap:16px}.caption-editor{resize:none;overflow:hidden;border:0;background:transparent}.caption-editor:focus-visible{border-bottom:1px solid var(--green)}
-.skills-section{position:relative;overflow:hidden;isolation:isolate}.skills-section>.section-heading,.skills-list{position:relative;z-index:1}.skills-list{max-width:760px;border-top:1px solid #e4e5de}.skill-row{display:grid;grid-template-columns:175px minmax(0,1fr);gap:20px;padding:13px 0;border-bottom:1px solid #e4e5de}.skill-row h3{font-size:.96rem;color:#2d3e31;padding-top:1px}.skill-row p{font-size:.86rem;line-height:1.65;color:#4c554e}.botanical-lines{position:absolute;z-index:0;right:-12px;top:-20px;width:270px;height:350px;color:#71866e;opacity:.23;pointer-events:none}
-@media(max-width:760px){.botanical-lines{right:-36px;width:225px;opacity:.18}.skills-list{max-width:calc(100% - 85px)}.skill-row{grid-template-columns:145px minmax(0,1fr);gap:16px}}
-@media(max-width:560px){.botanical-lines{right:-62px;top:0;width:175px;height:280px;opacity:.13}.skills-list{max-width:100%;padding-right:40px}.skill-row{grid-template-columns:1fr;gap:3px;padding:11px 0}.skill-row h3{font-size:.9rem}.skill-row p{font-size:.82rem}}
 
-/* ── Biophilic & molecule background art ── */
+/* ── Skills section (kept from original, botanical SVG removed) ── */
+.skills-section{position:relative;overflow:hidden;isolation:isolate}
+.skills-section>.section-heading,.skills-list{position:relative;z-index:1}
+.skills-list{max-width:760px;border-top:1px solid #e4e5de}
+.skill-row{display:grid;grid-template-columns:175px minmax(0,1fr);gap:20px;padding:13px 0;border-bottom:1px solid #e4e5de}
+.skill-row h3{font-size:.96rem;color:#2d3e31;padding-top:1px}
+.skill-row p{font-size:.86rem;line-height:1.65;color:#4c554e}
 
-/* Molecular network – about/hero section */
+@media(max-width:760px){.skills-list{max-width:calc(100% - 85px)}.skill-row{grid-template-columns:145px minmax(0,1fr);gap:16px}}
+@media(max-width:560px){.skills-list{max-width:100%;padding-right:40px}.skill-row{grid-template-columns:1fr;gap:3px;padding:11px 0}.skill-row h3{font-size:.9rem}.skill-row p{font-size:.82rem}}
+
+
+/* ═══════════════════════════════════════════════
+   Biophilic background art (external SVG assets)
+   ═══════════════════════════════════════════════ */
+
+/*
+ * Each section gets its own background-image referencing an SVG in /assets/.
+ * background-size is set explicitly so the browser can't blow them up.
+ * No inline SVGs in the DOM = no caching/sizing conflicts.
+ */
+
+/* ── Hero / About: molecular network, bottom-left ── */
 .about-section {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.about-section > .about-copy,
-.about-section > .about-photo {
-  position: relative;
-  z-index: 1;
-}
-.mol-network-bg {
-  position: absolute;
-  z-index: 0;
-  left: -30px;
-  bottom: -40px;
-  width: 400px;
-  height: 360px;
-  color: #6b8a6b;
-  opacity: 0.18;
-  pointer-events: none;
-  animation: drift-slow 28s ease-in-out infinite alternate;
+  background-image: url('/assets/mol-network.svg');
+  background-repeat: no-repeat;
+  background-position: left -20px bottom -30px;
+  background-size: 420px auto;
 }
 
-/* Hexagonal rings – research section */
+/* ── Updates: cell shapes, right side ── */
+.updates-section {
+  background-image: url('/assets/cell-shapes.svg');
+  background-repeat: no-repeat;
+  background-position: right -60px top -20px;
+  background-size: 340px auto;
+}
+
+/* ── Skills: hex rings replace the old inline botanical SVG ── */
+.skills-section {
+  background-image: url('/assets/hex-rings.svg');
+  background-repeat: no-repeat;
+  background-position: right -10px top -10px;
+  background-size: 280px auto;
+}
+
+/* ── Research: DNA helix, left edge ── */
 .research-section {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
+  background-image: url('/assets/dna-helix.svg');
+  background-repeat: no-repeat;
+  background-position: right 20px top 10px;
+  background-size: 75px auto;
 }
-.research-section > .section-heading,
-.research-section > .research-copy {
+
+/* ── Education: molecular network again, flipped via a pseudo-element ── */
+.education-section {
+  position: relative;
+}
+.education-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/mol-network.svg');
+  background-repeat: no-repeat;
+  background-position: right -80px center;
+  background-size: 300px auto;
+  transform: scaleX(-1);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+.education-section > * {
   position: relative;
   z-index: 1;
 }
-.hex-rings-bg {
-  position: absolute;
-  z-index: 0;
-  right: -20px;
-  top: 10px;
-  width: 310px;
-  height: 270px;
-  color: #6b8a6b;
-  opacity: 0.16;
-  pointer-events: none;
-  animation: drift-slow 32s ease-in-out infinite alternate-reverse;
-}
 
-/* DNA helix – contact section */
+/* ── Contact: cell shapes, left side ── */
 .contact-section {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.contact-section > h2,
-.contact-section > p {
-  position: relative;
-  z-index: 1;
-}
-.dna-helix-bg {
-  position: absolute;
-  z-index: 0;
-  right: 40px;
-  top: -20px;
-  width: 80px;
-  height: 280px;
-  color: #7a9474;
-  opacity: 0.17;
-  pointer-events: none;
-  animation: drift-vertical 24s ease-in-out infinite alternate;
+  background-image: url('/assets/cell-shapes.svg');
+  background-repeat: no-repeat;
+  background-position: left -100px bottom -40px;
+  background-size: 280px auto;
 }
 
-/* Subtle body-level molecular dot grid */
-body {
-  background-image: radial-gradient(circle, #b4c4ae 0.7px, transparent 0.7px);
-  background-size: 48px 48px;
-  background-position: 12px 12px;
-  background-attachment: fixed;
-}
-/* Make it very faint */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: var(--paper);
-  opacity: 0.92;
-  z-index: -1;
-  pointer-events: none;
+/* ── Gallery: hex rings, faint, bottom-right ── */
+.gallery-section {
+  background-image: url('/assets/hex-rings.svg');
+  background-repeat: no-repeat;
+  background-position: left -40px bottom -30px;
+  background-size: 240px auto;
+  background-blend-mode: multiply;
 }
 
-/* ── Gentle animations ── */
-@keyframes drift-slow {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(6px, -8px) rotate(1.5deg); }
-}
-@keyframes drift-vertical {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(8px); }
-}
-
-/* ── Responsive adjustments ── */
+/* ── Responsive: shrink backgrounds on smaller screens ── */
 @media (max-width: 760px) {
-  .mol-network-bg {
-    width: 300px;
-    height: 280px;
-    opacity: 0.13;
-    left: -50px;
+  .about-section {
+    background-size: 300px auto;
+    background-position: left -40px bottom -20px;
   }
-  .hex-rings-bg {
-    width: 240px;
-    right: -40px;
-    opacity: 0.12;
+  .updates-section {
+    background-size: 260px auto;
+    background-position: right -80px top -10px;
   }
-  .dna-helix-bg {
-    right: 15px;
-    opacity: 0.12;
+  .skills-section {
+    background-size: 220px auto;
+  }
+  .research-section {
+    background-size: 60px auto;
+    background-position: right 10px top 5px;
+  }
+  .education-section::before {
+    background-size: 220px auto;
+    opacity: 0.45;
+  }
+  .contact-section {
+    background-size: 200px auto;
+  }
+  .gallery-section {
+    background-size: 180px auto;
   }
 }
+
 @media (max-width: 560px) {
-  .mol-network-bg {
-    width: 220px;
-    height: 220px;
-    opacity: 0.1;
-    left: -60px;
-    bottom: -30px;
+  .about-section {
+    background-size: 220px auto;
+    background-position: left -50px bottom -15px;
   }
-  .hex-rings-bg {
-    width: 180px;
-    height: 210px;
-    opacity: 0.09;
-    right: -55px;
+  .updates-section {
+    background-size: 180px auto;
+    background-position: right -90px top 0;
   }
-  .dna-helix-bg {
-    width: 55px;
-    opacity: 0.09;
+  .skills-section {
+    background-size: 160px auto;
+    background-position: right -30px top 0;
   }
-  body {
-    background-size: 40px 40px;
+  .research-section {
+    background-size: 45px auto;
+  }
+  .education-section::before {
+    background-size: 160px auto;
+    opacity: 0.35;
+  }
+  .contact-section {
+    background-size: 150px auto;
+  }
+  .gallery-section {
+    background-size: 130px auto;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .mol-network-bg,
-  .hex-rings-bg,
-  .dna-helix-bg {
-    animation: none;
+
+/* ── Print: hide decorative backgrounds ── */
+@media print {
+  .about-section,
+  .updates-section,
+  .skills-section,
+  .research-section,
+  .contact-section,
+  .gallery-section {
+    background-image: none !important;
+  }
+  .education-section::before {
+    display: none;
   }
 }
