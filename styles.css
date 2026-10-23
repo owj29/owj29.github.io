@@ -9,3 +9,153 @@
 .skills-section{position:relative;overflow:hidden;isolation:isolate}.skills-section>.section-heading,.skills-list{position:relative;z-index:1}.skills-list{max-width:760px;border-top:1px solid #e4e5de}.skill-row{display:grid;grid-template-columns:175px minmax(0,1fr);gap:20px;padding:13px 0;border-bottom:1px solid #e4e5de}.skill-row h3{font-size:.96rem;color:#2d3e31;padding-top:1px}.skill-row p{font-size:.86rem;line-height:1.65;color:#4c554e}.botanical-lines{position:absolute;z-index:0;right:-12px;top:-20px;width:270px;height:350px;color:#71866e;opacity:.23;pointer-events:none}
 @media(max-width:760px){.botanical-lines{right:-36px;width:225px;opacity:.18}.skills-list{max-width:calc(100% - 85px)}.skill-row{grid-template-columns:145px minmax(0,1fr);gap:16px}}
 @media(max-width:560px){.botanical-lines{right:-62px;top:0;width:175px;height:280px;opacity:.13}.skills-list{max-width:100%;padding-right:40px}.skill-row{grid-template-columns:1fr;gap:3px;padding:11px 0}.skill-row h3{font-size:.9rem}.skill-row p{font-size:.82rem}}
+
+/* ── Biophilic & molecule background art ── */
+
+/* Molecular network – about/hero section */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.about-section > .about-copy,
+.about-section > .about-photo {
+  position: relative;
+  z-index: 1;
+}
+.mol-network-bg {
+  position: absolute;
+  z-index: 0;
+  left: -30px;
+  bottom: -40px;
+  width: 400px;
+  height: 360px;
+  color: #6b8a6b;
+  opacity: 0.18;
+  pointer-events: none;
+  animation: drift-slow 28s ease-in-out infinite alternate;
+}
+
+/* Hexagonal rings – research section */
+.research-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.research-section > .section-heading,
+.research-section > .research-copy {
+  position: relative;
+  z-index: 1;
+}
+.hex-rings-bg {
+  position: absolute;
+  z-index: 0;
+  right: -20px;
+  top: 10px;
+  width: 310px;
+  height: 270px;
+  color: #6b8a6b;
+  opacity: 0.16;
+  pointer-events: none;
+  animation: drift-slow 32s ease-in-out infinite alternate-reverse;
+}
+
+/* DNA helix – contact section */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.contact-section > h2,
+.contact-section > p {
+  position: relative;
+  z-index: 1;
+}
+.dna-helix-bg {
+  position: absolute;
+  z-index: 0;
+  right: 40px;
+  top: -20px;
+  width: 80px;
+  height: 280px;
+  color: #7a9474;
+  opacity: 0.17;
+  pointer-events: none;
+  animation: drift-vertical 24s ease-in-out infinite alternate;
+}
+
+/* Subtle body-level molecular dot grid */
+body {
+  background-image: radial-gradient(circle, #b4c4ae 0.7px, transparent 0.7px);
+  background-size: 48px 48px;
+  background-position: 12px 12px;
+  background-attachment: fixed;
+}
+/* Make it very faint */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  opacity: 0.92;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Gentle animations ── */
+@keyframes drift-slow {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(6px, -8px) rotate(1.5deg); }
+}
+@keyframes drift-vertical {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(8px); }
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 760px) {
+  .mol-network-bg {
+    width: 300px;
+    height: 280px;
+    opacity: 0.13;
+    left: -50px;
+  }
+  .hex-rings-bg {
+    width: 240px;
+    right: -40px;
+    opacity: 0.12;
+  }
+  .dna-helix-bg {
+    right: 15px;
+    opacity: 0.12;
+  }
+}
+@media (max-width: 560px) {
+  .mol-network-bg {
+    width: 220px;
+    height: 220px;
+    opacity: 0.1;
+    left: -60px;
+    bottom: -30px;
+  }
+  .hex-rings-bg {
+    width: 180px;
+    height: 210px;
+    opacity: 0.09;
+    right: -55px;
+  }
+  .dna-helix-bg {
+    width: 55px;
+    opacity: 0.09;
+  }
+  body {
+    background-size: 40px 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mol-network-bg,
+  .hex-rings-bg,
+  .dna-helix-bg {
+    animation: none;
+  }
+}
