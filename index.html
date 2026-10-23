@@ -35,9 +35,9 @@
       <div class="about-copy">
         <h1 id="name-heading">Oliver Johnson</h1>
         <p class="about-lede">I am an undergraduate physics student at Case Western Reserve University, where I am concentrating in biophysics.</p>
-        <p>I work with Professor Yihang Wang on DEMON, a project exploring how reinforcement learning can help molecular simulations find events that are difficult to observe in ordinary runs. Most of my work so far has involved building the learning and simulation code and figuring out how to test it fairly.</p>
-        <p>I'm interested in how understanding molecular behavior might eventually matter for human health, and in the people who help carry research toward care.</p>
-        <p>Outside the lab, I swim with CWRU Varsity Swimming & Diving. I've also worked in land stewardship and started a small local service business.</p>
+        <p>I work with Professor Yihang Wang on DEMON, a project exploring how reinforcement learning can help molecular simulations find events that are difficult to observe in ordinary runs. Most of my work so far has involved building the learning and simulation code and figuring out how to test it fairly, alongside extensive architectural experiments to find strong representations of molecular time series.</p>
+        <p>I'm interested in how understanding molecular behavior can influence human health, and how smart molecular/scientific ML models can create a better world. I'm also fascinated by the interractions between radiation and life in the context of imaging and radiotherapies.</p>
+        <p>Outside the lab, I swim on the CWRU Varsity Swimming & Diving team, love to spend time outdoors, and will play pretty much any board game you can recommend. Outside the collegiate swim season I also like to stay active doing pretty much anything outdoors or in the gym!</p>
         <p class="about-links"><a href="/assets/Oliver_Johnson_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a><a href="mailto:owj4@case.edu">owj4@case.edu</a><a href="https://www.linkedin.com/in/oliver-johnson-157100235/" target="_blank" rel="noopener">LinkedIn</a></p>
         <p class="education-line">B.S. Physics, expected May 2029; concentrating in biophysics</p>
       </div>
@@ -67,7 +67,7 @@
       <div class="skills-list">
         <div class="skill-row"><h3>Scientific programming</h3><p>I work mostly in Python, JAX, and NumPy, building code for experiments and simulation workflows. I'm comfortable working in Linux and on Slurm clusters.</p></div>
         <div class="skill-row"><h3>Molecular simulation</h3><p>My current work uses OpenMM and parallel trajectory workflows to study how molecules move between states.</p></div>
-        <div class="skill-row"><h3>Machine learning</h3><p>I've worked with PyTorch, discrete Soft Actor-Critic, and learned representations for molecular trajectories, with care for fair comparisons and useful evaluation.</p></div>
+        <div class="skill-row"><h3>Machine learning</h3><p>I've worked with PyTorch, discrete Soft Actor-Critic, and learned representations for molecular trajectories, including architectures like EGNN (the O.G. Max Welling one), PaiNN, CNNs/UNet, and temporal transformers.</p></div>
         <div class="skill-row"><h3>Research communication</h3><p>I enjoy making technical work understandable, from writing up methods to presenting a research poster.</p></div>
       </div>
     </section>
@@ -80,7 +80,7 @@
         <p>At each decision, the agent selects one trajectory to copy and another to prune. It learns from the resulting configurations rather than following a reaction coordinate designed in advance. We have tested the approach on model energy landscapes and are studying its behavior on molecular systems.</p>
         <figure class="research-figure"><img src="/assets/landscape-comparison.png" width="1400" height="593" alt="Two plots of a rotated model energy landscape. DEMON trajectories reach both basins; random splitting trajectories remain in the initial basin."><figcaption>DEMON and random splitting on a held-out two-dimensional landscape. The figure is from my July 2026 poster.</figcaption></figure>
         <p>In early alanine dipeptide evaluations, DEMON explored a broader set of conformations than random splitting. These are preliminary results; questions about transfer and reliability are still open.</p>
-        <p class="poster-link"><a href="/assets/DEMON_Intersections_July_2026.pdf" target="_blank" rel="noopener">Read the DEMON poster from CWRU Intersections (PDF)</a></p>
+        <p class="poster-link"><a href="/assets/ChicagoPoster1.pdf" target="_blank" rel="noopener">Take a look at the DEMON poster from the UChicago & Caltech AI+Science Conference 2026! (PDF)</a></p>
         <p>I've contributed to the learning and simulation code, including discrete Soft Actor-Critic, molecular trajectory representations, parallel OpenMM workflows, and a JAX model-system implementation that improved simulation throughput by up to about 190×.</p>
         <details class="more-research"><summary>More about the methods and tools</summary><p>My recent work has included PaiNN and EGNN representations, temporal Transformers, permutation-equivariant attention across replicas, and graph-aware replay for molecular systems. Tools I use include Python, PyTorch, JAX, NumPy, OpenMM, Linux, and Slurm.</p></details>
       </div>
@@ -89,20 +89,24 @@
     <section id="gallery" class="page-section gallery-section" aria-labelledby="gallery-title">
       <div class="section-heading"><h2 id="gallery-title">Gallery</h2></div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-gallery-card="poster">
-          <div class="photo-frame gallery-photo-frame"><img class="gallery-photo" alt="" hidden><div class="gallery-placeholder"><span>Photo</span></div></div>
-          <figcaption><textarea class="caption-editor" data-caption="poster" rows="2" aria-label="Caption for research photo">Presenting DEMON at CWRU Intersections, July 2026.</textarea><div class="photo-controls"><button class="upload-button" type="button" data-open-upload="gallery-poster"><span data-upload-label="poster">Choose photo</span></button><button class="clear-button" type="button" data-clear-photo="poster" hidden>Remove</button></div><input class="file-input" id="gallery-poster" type="file" accept="image/*" aria-label="Choose a research or conference photo"><p class="upload-status" aria-live="polite"></p></figcaption>
+        <figure class="gallery-item">
+          <div class="photo-frame gallery-photo-frame">
+            <img src="/assets/chicagoPresentation.jpeg" alt="Presenting DEMON at UChicago, October 2026">
+          </div>
+          <figcaption>Presenting DEMON at the UChicago & Caltech AI+Science Conference, first conference in the books! (October 2026)</figcaption>
         </figure>
-        <figure class="gallery-item" data-gallery-card="trails">
-          <div class="photo-frame gallery-photo-frame"><img class="gallery-photo" alt="" hidden><div class="gallery-placeholder"><span>Photo</span></div></div>
-          <figcaption><textarea class="caption-editor" data-caption="trails" rows="2" aria-label="Caption for service photo">Trail work with the New Canaan Land Trust.</textarea><div class="photo-controls"><button class="upload-button" type="button" data-open-upload="gallery-trails"><span data-upload-label="trails">Choose photo</span></button><button class="clear-button" type="button" data-clear-photo="trails" hidden>Remove</button></div><input class="file-input" id="gallery-trails" type="file" accept="image/*" aria-label="Choose a service or stewardship photo"><p class="upload-status" aria-live="polite"></p></figcaption>
-        </figure>
-        <figure class="gallery-item" data-gallery-card="swim">
-          <div class="photo-frame gallery-photo-frame"><img class="gallery-photo" alt="" hidden><div class="gallery-placeholder"><span>Photo</span></div></div>
-          <figcaption><textarea class="caption-editor" data-caption="swim" rows="2" aria-label="Caption for swimming photo">With CWRU Varsity Swimming & Diving.</textarea><div class="photo-controls"><button class="upload-button" type="button" data-open-upload="gallery-swim"><span data-upload-label="swim">Choose photo</span></button><button class="clear-button" type="button" data-clear-photo="swim" hidden>Remove</button></div><input class="file-input" id="gallery-swim" type="file" accept="image/*" aria-label="Choose a swimming or team photo"><p class="upload-status" aria-live="polite"></p></figcaption>
-        </figure>
-      </div>
-      <p class="gallery-note">Photos and captions are saved in this browser only. They are not uploaded to the site and won't appear when it's opened on another device.</p>
+        <figure class="gallery-item">
+          <div class="photo-frame gallery-photo-frame">
+            <img src="assets/Duolingo_Sharing.PNG" alt="Duolingo menace">
+          </div>
+          <figcaption> The grind never stops (September 2026)</figcaption>
+        </figure>        
+        <figure class="gallery-item">
+          <div class="photo-frame gallery-photo-frame">
+            <img src="/assets/Wyo_sunset2.jpg" alt="Wyoming sunset:)">
+          </div>
+          <figcaption>How do you write code with this view? (Wyoming, August 2026)</figcaption>
+        </figure>        
     </section>
 
     <section class="page-section education-section" aria-labelledby="education-title">
